@@ -19,9 +19,24 @@ SBT is the most common built tool in the Scala community. You can download it [h
 
 ### How to get started
 
-This repository is a Github template. You can create your own repository from it by clicking the green `Use this template` in the top right.
+#### Create a repository from the template
 
+This repository is a Github template. You can create your own repository from it by clicking the green `Use this template` in the top right.
 For more information, see ["Creating a repository from a template"](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template).
+
+After using the template to create your own blank project, please wait a minute or two for the `Template cleanup` workflow to run which will removes some template-specific stuff from the repository (like the LICENSE).
+The workflow is complete when an additional commit has been automatically pushed to your project.
+
+#### Clone your repository
+
+Once you have created a repository from this template and the `Template cleanup` workflow has completed, clone your repository:
+
+```sh
+git clone git@github.com:<organization>/<repo name>.git <local checkout name>
+cd <local checkout name>
+```
+
+Please replace anything between `<` and `>` with the appropriate values for your project.
 
 #### Rename project in build.sbt file
 
