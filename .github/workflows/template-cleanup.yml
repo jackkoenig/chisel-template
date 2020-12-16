@@ -1,0 +1,35 @@
+name: Template Cleanup
+on:
+  push:
+    branches: [master]
+
+jobs:
+
+  # Triggered on first push to repos created from the template
+  template-cleanup:
+    name: Template Cleanup
+    runs-on: ubuntu-latest
+    if: github.event.repository.name != 'chisel-template'
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cleanup
+        run: |
+          rm -rf \
+            .github/workflows/template-cleanup.yml \
+            LICENSE
+
+      - name: Commit
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Template cleanup"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
